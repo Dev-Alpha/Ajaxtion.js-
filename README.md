@@ -1,17 +1,16 @@
 ## Synopsis
-
    Simple scripts to help you request and upload files by **Three Functions**
 ## Code Example
     
 * syntax order to request function ajax()
-* var data = {"id:"id_post","form":"form_add","dir":"apps/controller/login.php","loading" : "img/loading.gif" }
+* var data = {"slc_respond" :"#id_post","form":"form_add","url":"apps/controller/login.php","loading" : "img/loading.gif" }
 * ajax(data)
-* id => id name for element html
+* slc_respond => element that will render the respond
 * form => form name
-* dir => Send the request off to a PHP file
+* url => Send the request off to a PHP file
 * loading => file or text for show loading
 * callback => "" // function after run request
-* Example => ```<script> var data = {"id:"id_post","form":"form_add","dir":"apps/controller/login.php","loading" : "img/loading.gif" ,"callback" : "" } </script>
+* Example => ```<script> var data = {"slc_respond" :"#id_post","form":"form_add","url":"apps/controller/login.php","loading" : "img/loading.gif" ,"callback" : "" } </script>
             <form action="javascript:ajax(data)" method="POST" name="form_add" >
               <input class="ajax_value" type="email" name="email" />
               <input class="ajax_value" type="password" name="password" />
@@ -26,11 +25,11 @@
 * Condition => naming class input ajax_value => class="ajax_value"
 
 * syntax order to request function ajax_get()
-* var data = {"id" :"dev_raq","get": "search = Example","dir":"search.php","loading" : "" ,"callback" : "setTimeout(function () {_('dev_raq').innerHTML ='';}, 500);" } ;
+* var data = {"slc_respond" :"#dev_raq","get": "search = Example","url":"search.php","loading" : "" ,"callback" : "setTimeout(function () {_('dev_raq').innerHTML ='';}, 500);" } ;
 * ajax_get(data);
-* id => id name for element html
+* slc_respond => element that will render the respond
 * form => form name
-* dir => Send the request off to a PHP file
+* url => Send the request off to a PHP file
 * loading => file or text for show loading
 * callback => "" //function after run request
 * Example => ```<form action="javascript:return false" method="GET" >
@@ -41,9 +40,9 @@
             <script>
                    function search_ajax(valeu){
                        var data =
-                               {"id" :"req_search",
+                               {"slc_respond" :"#req_search",
                                 "get": "search = " + valeu,
-                                 "dir":"search.php",
+                                 "url":"search.php",
                                  "loading" : "" ,
                                  "callback" : "" // function after run request
                                } ;
@@ -52,22 +51,22 @@
             </script>```
 
 * syntax order to request function ajax_upload_files()
-* var file = {"id" :"fileshow",num": "1","size": "20485760","dir":"apps/controller/upload.php?q=upload","loading" : "" ,"callback" : ""} ;
+* var file = {"slc_respond" :"#fileshow",num": "1","size": "20485760","url":"apps/controller/upload.php?q=upload","loading" : "" ,"callback" : ""} ;
 * ajax_upload_files(file);
-* id  => id name for element html
+* id  => element that will render the respond
 * num => number files uploading
 * size => size files by byt
-* dir => Send the request off to a PHP file
+* url => Send the request off to a PHP file
 * loading => file or text for show loading
 * callback => "" //function after run request
 * Condition => naming id and name input id = "files" name="files" and creat <div id="progress"><div id="progressBar"></div></div>
 * Example =>```<script>  
                 var file =
                {
-                   "id" :"req_file",
+                   "slc_respond" :"#resp_file",
                    "num": "1",
                    "size": "20485760",
-                   "dir":"apps/controller/upload.php?q=upload",
+                   "url":"apps/controller/upload.php?q=upload",
                    "loading" : "" ,
                    "callback" : ""
                } ;
@@ -76,7 +75,7 @@
               <input id="files" type="file" name="files" multiple="multiple" />
               <input type="submit" value="submit" >
             </form>  
-            <div id="req_file"></div>   
+            <div id="resp_file"></div>   
             <div id="progress"><div id="progressBar"></div></div>```
 
     
@@ -102,3 +101,4 @@
 ## License
 
    The MIT License (MIT)
+   
